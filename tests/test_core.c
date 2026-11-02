@@ -1,5 +1,4 @@
-#include "../include/type.h"
-#include "../include/util.h"
+#include <elym/core.h>
 #include <assert.h>
 #include <math.h>
 #include <stdio.h>
