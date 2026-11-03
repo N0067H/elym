@@ -175,4 +175,16 @@ static inline f64 elym_clamp_f64(f64 value, f64 min, f64 max) {
     return value;
 }
 
+static inline usize elym_align_up(usize value, usize alignment) {
+    return (value + alignment - 1) & ~(alignment - 1);
+}
+
+static inline usize elym_align_down(usize value, usize alignment) {
+    return value & ~(alignment - 1);
+}
+
+static inline usize elym_align_offset(usize value, usize alignment) {
+    return (-value) & (alignment - 1);
+}
+
 #endif // ELYM_CORE_H

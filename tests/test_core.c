@@ -1,5 +1,5 @@
-#include <elym/core.h>
 #include <assert.h>
+#include <elym/core.h>
 #include <math.h>
 #include <stdio.h>
 
@@ -104,6 +104,19 @@ int main(void) {
     assert(elym_clamp_f32(-INFINITY, 0.0f, 1.0f) == 0.0f);
     assert(elym_clamp_f64(INFINITY, 0.0, 1.0) == 1.0);
     assert(elym_clamp_f64(-INFINITY, 0.0, 1.0) == 0.0);
+
+    // Test for alignment functions
+    assert(elym_align_up(13, 8) == 16);
+    assert(elym_align_up(16, 8) == 16);
+    assert(elym_align_up(0, 8) == 0);
+
+    assert(elym_align_down(13, 8) == 8);
+    assert(elym_align_down(16, 8) == 16);
+    assert(elym_align_down(0, 8) == 0);
+
+    assert(elym_align_offset(13, 8) == 3);
+    assert(elym_align_offset(16, 8) == 0);
+    assert(elym_align_offset(1, 8) == 7);
 
     printf("Successful\n");
     return 0;
